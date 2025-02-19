@@ -1,0 +1,110 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>来康康艳儿准备吃啥</title>
+</head>
+
+<style>
+	body{background-color: #f9e0e4}
+	.main{
+		width: 800px;
+		height: 800px;
+		background:url('img/bg1.jpg')no-repeat;
+		background-size: 800px;
+		margin: 300px auto;
+	}
+	.text{
+		width: 180px;
+		height: 100px;
+		color: #fff;
+		font-weight:bold;
+		font-size: 80px;
+		margin:110px 560px auto;
+		text-align: center;
+		cursor: pointer;
+	}
+	.button{
+		width: 180px;
+		height: 100px;
+		color: #fff;
+		font-weight:bold;
+		font-size: 80px;
+		position: relative;
+		left: 50px;
+		top: 210px;
+		text-align: center;
+		cursor: pointer;
+		/*background: #666;*/
+	}
+	.name{
+		position: relative;
+		/*background: #999;*/
+		left: 232px;
+		top: 180px;
+		width: 400px;
+		height: 100px;
+		color:#fff;
+		font-weight:bold;
+		font-size: 80px;
+		text-align: left;
+		padding-left: 25px;
+	}
+
+</style>
+
+<script src="js/jquery.js"></script>
+<script src="js/jquery-migrate-1.2.1.min.js"></script>
+
+<body>
+
+<div class="main">
+	<div class="button"><span>开始</span></div>
+	<div id='addcai' class="text">加菜</div>
+	<div class="name"><span id='ko'>猪脚饭</span></div>
+</div>
+
+<script>
+ names=['螺蛳粉','饺子','牛肉粉','油泼面','炒面','锡纸米线','剁椒鱼头','毛氏红烧肉','腊味合蒸','東安子鸡','辣椒炒肉','湘西外婆菜','永州血鸭','口味虾','干锅手撕包菜','小炒黄牛肉','冲浪蒸菜','湘西酸肉','猪油拌粉',
+ '臭豆腐','糖油粑粑','姊妹團子','酱板鸭','擂辣椒皮蛋','衡阳炒粉','芷江鸭','槟榔肉','宁乡花猪肉','常德钵子菜','郴州栖凤鱼粉','湯陽猪血丸子','湘西腊肉','湘西糍粑','湘西米豆腐','湘西蕨根粉','湘西蒿子粑粑','湘西油茶汤',
+ '湘西土匪鸡','湘西坛子菜','湘西烟熏豆腐干','湘西酸萝卜','湘西腊肠','湘西炒腊肉','湘西炒野菜','湘西炒河虾','湘西炒螺丝','湘西炒粉','湘西炒饭','湘西炒面','湘西火锅','湘西烤肉','湘西烤鱼','湘西烤鸡','湘西烤鸭','湘西烤兔',
+ '湘西烤羊','白切鸡','烧鹅','烤乳猪','蜂蜜叉烧','脆皮烧肉','广式烧鸭','豉汁蒸排骨','娛樂 蒸氣','清蒸鲈鱼','蚝油牛肉','咕噜肉','菠萝咕噜肉','姜葱炒蟹','避风港炒蟹','干炒牛河','广式炒面','艇仔粥','及第粥','肠粉','饺子','烧卖',
+ '叉烧包','蛋挞','龟苓膏','双皮奶','姜撞奶','午餐仔','马蹄糕','糕','伦教糕','沙河粉','云吞面','猪脚姜','老火靓汤','潮州牛肉丸','潮州卤水鹅','潮州鱼饭','潮州蚝烙','客家盐焗鸡','客家酿豆腐','客人梅菜扣肉','客家盆菜','顺德鱼生',
+ '顺德鱼羹','顺德炒牛奶','顺德猪杂粥','湛江白切鸡','湛江沙虫','湛江生蚝','湛江炒粉'];
+ $('.button').toggle(
+	function(){
+		//alert(names.length);
+	$(this).css({'color':'#fff'}).html('停止');
+	ydm=setInterval(function(){
+	index=Math.floor(Math.random()*names.length);
+	val=names[index];
+	$('#ko').css({'color':'#fff'}).html(val);
+	},50)},
+	function(){
+		$(this).css({'color':'#fff'}).html('开始');
+		$('#ko').css({'color':'#fff'});
+		clearInterval(ydm);
+	}
+ );
+ const button = document.getElementById('addcai');
+
+// 添加点击事件监听器
+button.addEventListener('click', function() {
+  // 弹出输入框，获取用户输入
+  const userInput = prompt('请输入你想添加的菜名：');
+
+  // 检查用户是否取消了输入框或输入为空
+  if (userInput !== null && userInput.trim() !== '') {
+    // 将输入内容添加到字符串集合
+    names.push(userInput);
+    // 可选：打印字符串集合到控制台，方便查看
+    console.log(names);
+    // 可选: 将字符串集合展示到页面上。
+    // displayCollection();
+  }
+});
+	
+</script>
+
+</body>
+</html>
